@@ -17,7 +17,9 @@ int main(int argc, char *argv[])
 	funcPtr fP;
 	fP = &findGCD_v1;
 	printf("time for v1: %ld\n", get_exec_time_nsecs(fP));
+	fP = &findGCD_v2;
 	printf("time for v2: %ld\n", get_exec_time_nsecs(fP));
+	fP = &findGCD_v3;
 	printf("time for v3: %ld\n", get_exec_time_nsecs(fP));
 
 	return 0;
@@ -26,7 +28,6 @@ int main(int argc, char *argv[])
 long get_exec_time_nsecs(funcPtr func_pointer)
 {
 	int i, j;
-	int result;
 	clock_gettime(CLOCK_MONOTONIC, &timespec);
 	long start_time = timespec.tv_sec * 1000000000LL + timespec.tv_nsec;
 	
@@ -34,12 +35,10 @@ long get_exec_time_nsecs(funcPtr func_pointer)
 	{
 		for(j = 2; j <= i; j++)
 		{
-			result = (*func_pointer)(i, j);
+			(*func_pointer)(i, j);
 		}
 	}
 
-	printf("result of %d and %d = %d\n", i, j, result);
-	
 	clock_gettime(CLOCK_MONOTONIC, &timespec);
 	long end_time = timespec.tv_sec * 1000000000LL + timespec.tv_nsec;
 
