@@ -33,7 +33,7 @@ long get_exec_time_nsecs(funcPtr func_pointer)
 	
 	for(i = 2; i < 10000; i++)
 	{
-		for(j = 2; j <= i; j++)
+		for(j = 2; j < i; j++)
 		{
 			(*func_pointer)(i, j);
 		}
