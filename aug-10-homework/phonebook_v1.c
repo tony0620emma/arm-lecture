@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
         entry1 = pHead1;
 	entry1->pNext = NULL;
 	int j;
-	for(j = 100; j > 0; j--){ // I want to create a larger struct
+	for(j = 1000; j > 0; j--){ // I want to create a larger struct
 		while(fgets(line, sizeof(line), fp)){
 			while((line[i] >= 'a' && line[i] <= 'z') || 
 					(line[i] >= 'A' && line[i] <= 'Z'))
